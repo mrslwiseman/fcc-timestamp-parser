@@ -1,20 +1,18 @@
 const express = require('express');
 const app = express();
 const parseDate = require('./helpers');
+const path = require('path');
 
 app.get('/:date', (req,res) => {
     const query = req.params.date;
-    if(!query) {
-        res.json({ error: "Please provide a timestamp to parse!"})
-    } else {
-        const parsed = parseDate(query)
-        res.json(parsed)
-    }
+    const parsed = parseDate(query)
+    res.json(parsed)
 })
 
-app.get('*', (req,res) => {
-    res.send('this will be the instruction page.')
-})
+app.use(express.static(path.resolve(__dirname, 'public')));
+app.get('/', function(request, response) {
+    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 app.set('port', process.env.PORT || 8080)
 
