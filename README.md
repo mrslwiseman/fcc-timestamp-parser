@@ -28,5 +28,5 @@ Unix:
 
 ### Takeaways from this project
 - Getting my chops up writing tests FIRST.
-- Getting more familiar with mocha, cjao. chai-http and BDD in general.
+- Getting more familiar with mocha, chai, chai-http and BDD in general.
 - More familiar with the Date API.
